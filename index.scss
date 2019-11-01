@@ -1,0 +1,170 @@
+@mixin grid{
+    min-height: 100%;
+    display: grid;
+    grid-template-rows: 80px;
+}
+.hamburger{
+    display: none;
+    cursor: pointer;
+    span{
+        background: black;
+        width:35px;
+        height:5px;
+        display: block;
+        margin-bottom: 2px;
+    }
+}
+*{
+    padding: 0;
+    margin:0;
+}
+html,body{
+    height:100%;
+}
+.grid{
+    @include grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: 'header' 'main';
+    .header{
+        grid-area: header;
+        background: yellow;
+        .subgrid{
+            @include grid;
+            align-items: center;
+        }
+        .flex{
+            display: flex;
+            position: relative;
+            padding:0 60px;
+            .text{
+                padding: 0 12px;
+                font-family: 'Lato';
+                font-style: normal;
+                font-weight: bold;
+                font-size: 24px;
+                line-height: 29px;
+                text-transform: capitalize;
+            }
+            ul{
+                margin-left: auto;
+                li{
+                    list-style: none;
+                    display: inline;
+                    font-family: 'Lato';
+                    font-style: normal;
+                    font-weight: normal;
+                    font-size: 20px;
+                    line-height: 24px;
+                    cursor: pointer;
+                }
+                :nth-child(2){
+                    font-weight:bold;
+                    text-decoration: underline;
+                }
+            }
+            .login{
+                margin-left: left;
+                padding-left:25px;
+                font-family: 'Lato';
+                font-style: normal;
+                font-weight: normal;
+                font-size: 21px;
+                line-height: 25px;
+                cursor: pointer;
+            }
+        }
+        @media(max-width:767px){
+            .flex{
+                padding: 0px 30px;
+            }
+        }
+        @media(max-width:640px){
+            .subgrid{
+                justify-content: center;
+            }
+            .flex{
+                .login,ul{
+                    display: none;
+                }
+                .hamburger{
+                    display: block;
+                    margin-left: auto;
+                }
+            }
+        }
+    }
+    .main{
+        grid-area:main;
+        .subgrid{
+            padding-top: 5px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto auto;
+            min-height: 100%;
+            grid-gap: 30px;
+            .item{
+                border:1px solid rgba(228,228,228,0.96);
+                margin:auto;
+                hr{
+                    margin-left:auto;
+                    margin-right: auto;
+                    margin-bottom:5px;
+                    width: 95%;
+                }
+                .title{
+                    padding-top:0.6rem; 
+                    padding-bottom: 1%;
+                    font-family: Lato;
+                    font-style:normal;
+                    font-weight: bold;
+                    font-size: 24px;
+                    line-height: 29px;
+                    padding-left:2rem;
+                }
+                .block{
+                    box-sizing: border-box;
+                    max-width:85%;
+                    margin-left:auto;
+                    margin-right: auto;
+                }
+                .cat{
+                    display: block;
+                    max-width:95%;
+                    margin-left:auto;
+                    margin-right: auto;
+                }
+                .author{
+                    padding-left: 8%;
+                    font-style: normal;
+                    font-weight: bold;
+                    font-size:14px;
+                    line-height: 17px
+                }
+                .buttons{
+                    display: flex;
+                    align-items: center;
+                    span{
+                    display: flex;
+                    padding:0 12px;
+                    align-items: center;
+                    flex-direction: row;
+                    font-family: Lato;
+                    font-style: normal;
+                    font-weight: bold;
+                    font-size:24px;
+                    line-height: 29px
+                    }
+                    img{
+                        margin-left:auto;
+                    }
+                }
+            }
+        }
+        @media(max-width:640px){
+            .subgrid{
+                grid-gap:10px;
+                grid-template-columns: 1fr;
+            }
+        }
+    }
+}
