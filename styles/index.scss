@@ -35,7 +35,7 @@ html,body{
         .flex{
             display: flex;
             position: relative;
-            padding:0 60px;
+            margin:0 60px;
             .text{
                 padding: 0 12px;
                 font-family: 'Lato';
@@ -75,7 +75,7 @@ html,body{
         }
         @media(max-width:767px){
             .flex{
-                padding: 0px 30px;
+                margin: 0px 30px;
             }
         }
         @media(max-width:640px){
@@ -100,17 +100,11 @@ html,body{
             display: grid;
             grid-template-columns: 1fr 1fr;
             grid-template-rows: auto auto;
-            min-height: 100%;
+            // min-height: 100%;
             grid-gap: 30px;
             .item{
                 border:1px solid rgba(228,228,228,0.96);
                 margin:auto;
-                hr{
-                    margin-left:auto;
-                    margin-right: auto;
-                    margin-bottom:5px;
-                    width: 95%;
-                }
                 .title{
                     padding-top:0.6rem; 
                     padding-bottom: 1%;
@@ -119,7 +113,6 @@ html,body{
                     font-weight: bold;
                     font-size: 24px;
                     line-height: 29px;
-                    padding-left:2rem;
                 }
                 .block{
                     box-sizing: border-box;
@@ -129,33 +122,35 @@ html,body{
                 }
                 .cat{
                     display: block;
-                    max-width:95%;
+                    max-width:100%;
                     margin-left:auto;
                     margin-right: auto;
                 }
                 .author{
-                    padding-left: 8%;
+                    // padding-left: 8%;
                     font-style: normal;
                     font-weight: bold;
                     font-size:14px;
                     line-height: 17px
                 }
                 .buttons{
-                    display: flex;
-                    align-items: center;
+                    display: block;
                     span{
-                    display: flex;
-                    padding:0 12px;
-                    align-items: center;
-                    flex-direction: row;
+                    display: inline-block;
+                    margin-right:2%;
+                    // padding:0 12px;
                     font-family: Lato;
                     font-style: normal;
                     font-weight: bold;
                     font-size:24px;
-                    line-height: 29px
+                    line-height: 29px;
                     }
-                    img{
-                        margin-left:auto;
+                    .more{
+                        float: right;
+                    }
+                    img,p{
+                        display:inline;
+                        vertical-align: middle; 
                     }
                 }
             }
